@@ -1,0 +1,31 @@
+{
+  "name": "mma",
+  "version": "1.0.0",
+  "description": "mma test assignement",
+  "author": "Alexander Ignatov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/polyfill": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4"
+  },
+  "scripts": {
+    "test:js": "jest",
+    "test:lint": "eslint --ext=js ./src",
+    "test": "npm run test:lint && npm run test:js"
+  }
+}

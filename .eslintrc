@@ -1,0 +1,15 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["standard"],
+    "plugins": [],
+    "rules": {
+        "react/jsx-pascal-case": "off", 
+    },
+    "env": {
+        "jest": true,
+        "es6": true,
+        "node": true
+    },
+    "settings": {
+    }
+}
