@@ -22,8 +22,7 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "jest": "^24.9.0",
-    "nodemon": "^1.19.4"
+    "jest": "^24.9.0"
   },
   "scripts": {
     "test:js": "cross-env CI=true jest",
@@ -32,7 +31,7 @@
     "start:dev": "npx babel-node ./src/index.js",
     "build:dist": "babel ./src/index.js -d dist",
     "build": "npm run test && npm run build:dist",
-    "serve": "nodemon dist/index.js",
+    "serve": "node dist/index.js",
     "start:prod": "npm run test && npm run build && npm run serve",
     "start:heroku": "npm run serve"
   }
