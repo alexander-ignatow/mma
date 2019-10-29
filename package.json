@@ -15,6 +15,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/register": "^7.6.2",
     "babel-eslint": "^10.0.3",
+    "cross-env": "^6.0.3",
     "eslint": "^6.5.1",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
@@ -25,12 +26,14 @@
     "nodemon": "^1.19.4"
   },
   "scripts": {
-    "test:js": "jest",
+    "test:js": "cross-env CI=true jest",
     "test:lint": "eslint --ext=js ./src",
     "test": "npm run test:lint && npm run test:js",
     "start:dev": "npx babel-node ./src/index.js",
-    "build": "babel ./src/index.js -d dist",
+    "build:dist": "babel ./src/index.js -d dist",
+    "build": "npm run test && npm run build:dist",
     "serve": "nodemon dist/index.js",
-    "start:prod": "npm run test && npm run build && npm run serve"
+    "start:prod": "npm run test && npm run build && npm run serve",
+    "start:heroku": "npm run serve"
   }
 }
