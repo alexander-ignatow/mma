@@ -61,8 +61,8 @@ The REST service was chosen because
 The output format:
 ```
 {
-  result: "success" of "error",
-  message: "ok" for success or the error message for error,
+  result: "OK" of "error",
+  message: "success" for success or the error message for error,
   argument: the first of the incorrect arguments that was concidered incorrect or missing (if any) or ommited
   H: the H value, if mapping was found
   K: the K value, if the mapping was found
