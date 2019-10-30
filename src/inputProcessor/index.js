@@ -122,5 +122,4 @@ export default function createInputProcessor () {
   proc.addRuleSet(createRulesetK())
 
   return proc
-
 }
