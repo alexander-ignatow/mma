@@ -1,6 +1,10 @@
 import { generateArgError, generateErrorNoValidOutput } from './ErrorHelpers'
 
-export default class ProcessorTier {
+export default class Processor {
+  constructor (rules, nextTier) {
+    this._nextTier = nextTier
+  }
+
   _sanitizeInput (input = {}) {
     // A: bool B: bool C: bool
     // D: float E: int F: int
@@ -48,7 +52,7 @@ export default class ProcessorTier {
     return cleanInput
   }
 
-  process (input) {
+  process (input, output = {}) {
     let cleanInput = {}
 
     try {

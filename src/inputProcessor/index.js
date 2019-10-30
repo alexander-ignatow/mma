@@ -1,5 +1,5 @@
-import ProcessorTier from './ProcessorTier'
+import Processor from './Processor'
 
 export default function createInputProcessor () {
-  return new ProcessorTier()
+  return new Processor()
 }
