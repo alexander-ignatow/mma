@@ -1,16 +1,18 @@
 import Express from 'express'
+import createInputProcessor from './inputProcessor'
 
 const DEFAULT_PORT = 3000
 const server = Express()
+const inputProcessor = createInputProcessor()
 
 server.get('/api/mma', (req, res) => {
-  res.status(200).send({
-    result: 'success',
-    output: {
-      T: 'M',
-      F: 0
-    }
-  })
+  try {
+    const result = inputProcessor.process(req.query)
+    res.status(200).send(result)
+  } catch (error) {
+    console.log(error)
+    res.status(200).send(error)
+  }
 })
 
 server.get('*', (req, res) => {

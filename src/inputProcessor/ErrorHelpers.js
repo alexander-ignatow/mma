@@ -12,3 +12,7 @@ export function generateError (message) {
     message
   }
 }
+
+export function generateErrorNoValidOutput () {
+  return generateError('Unable to find suitable output for the given input')
+}
