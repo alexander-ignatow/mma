@@ -1,8 +1,9 @@
-import { generateArgError, generateErrorNoValidOutput } from './ErrorHelpers'
+import { generateArgError, generateErrorNoValidOutput, generateSuccess } from './ErrorHelpers'
 
 export default class Processor {
-  constructor (rules, nextTier) {
+  constructor (nextTier) {
     this._nextTier = nextTier
+    this._ruleSets = []
   }
 
   _sanitizeInput (input = {}) {
@@ -52,6 +53,40 @@ export default class Processor {
     return cleanInput
   }
 
+  _processWithRules (input) {
+    let resultingOutput = {}
+
+    for (const ruleset of this._ruleSets) {
+      let intermediateOutput = null
+
+      for (const rule of ruleset) {
+        intermediateOutput = rule(input, resultingOutput)
+        if (intermediateOutput) {
+          // match found!
+          break
+        }
+      }
+
+      if (!intermediateOutput) {
+        // the whole set did not have any match
+        // it does not matter if we have anything from previous ruleset
+        // failing...
+        return null
+      } else {
+        resultingOutput = {
+          ...resultingOutput,
+          ...intermediateOutput
+        }
+      }
+    }
+
+    return resultingOutput
+  }
+
+  addRuleSet (rules) {
+    this._ruleSets.push(rules)
+  }
+
   process (input, output = {}) {
     let cleanInput = {}
 
@@ -62,8 +97,12 @@ export default class Processor {
       return err
     }
 
-    console.log(cleanInput)
+    const result = this._processWithRules(cleanInput)
 
-    return generateErrorNoValidOutput()
+    if (result) {
+      return generateSuccess(result)
+    } else {
+      return generateErrorNoValidOutput()
+    }
   }
 }
