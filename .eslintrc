@@ -3,7 +3,7 @@
     "extends": ["standard"],
     "plugins": [],
     "rules": {
-        "react/jsx-pascal-case": "off", 
+        "react/jsx-pascal-case": "off"
     },
     "env": {
         "jest": true,
