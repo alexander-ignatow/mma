@@ -1,7 +1,7 @@
 # mma
 
 ## The task (in short)
-Create the solution to provide the mappings of the set of the input rules to the output.
+Create the solution to provide the mappings of the input to the output using given set of the rules.
 
 ## Assumptions
 

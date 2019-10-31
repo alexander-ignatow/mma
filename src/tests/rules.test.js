@@ -1,6 +1,9 @@
 import createProcessor from '../inputProcessor'
 import { M, P, T } from '../inputProcessor/ProcessorConfig'
 
+// these tests check how all match rules work
+// they make sense if the rules does not change frequently
+
 test('custom 2 tests', () => {
   // Custom 2
   // A && B && !C => H = T

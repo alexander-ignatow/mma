@@ -91,25 +91,12 @@ function createRulesetK () {
     }
   })
   // Base
+  // combine three base rules for K in one func
   rulesetK.push(({ F, D, E }, { H }) => {
-    if (H === T) {
-      return {
-        K: D - (D * F / 30)
-      }
-    }
-  })
-  rulesetK.push(({ F, D, E }, { H }) => {
-    if (H === P) {
-      return {
-        K: D + (D * (E - F) / 25.5)
-      }
-    }
-  })
-  rulesetK.push(({ F, D, E }, { H }) => {
-    if (H === M) {
-      return {
-        K: D + (D * E / 10)
-      }
+    switch (H) {
+      case T: return { K: D - (D * F / 30) }
+      case P: return { K: D + (D * (E - F) / 25.5) }
+      case M: return { K: D + (D * E / 10) }
     }
   })
 
