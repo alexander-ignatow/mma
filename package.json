@@ -29,7 +29,7 @@
     "test:lint": "eslint --ext=js ./src",
     "test": "npm run test:lint && npm run test:js",
     "start:dev": "npx babel-node ./src/index.js",
-    "build:dist": "babel ./src/index.js -d dist",
+    "build:dist": "babel ./src -d dist",
     "build": "npm run test && npm run build:dist",
     "serve": "node dist/index.js",
     "start:prod": "npm run test && npm run build && npm run serve",
