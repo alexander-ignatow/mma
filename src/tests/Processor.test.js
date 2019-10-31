@@ -7,7 +7,7 @@ test('empty input test', () => {
 
   // should be 'argument A missing'
   // don't check message - check only 'argument' field
-  expect(expectedError.result).toBe('error')
+  expect(expectedError.status).toBe('error')
   expect(expectedError.argument).toBe('A')
 })
 
@@ -19,10 +19,10 @@ test('missing arg test', () => {
   const expectedError2 = new Processor().process(input2)
 
   // don't check message - check only 'argument' field
-  expect(expectedError1.result).toBe('error')
+  expect(expectedError1.status).toBe('error')
   expect(expectedError1.argument).toBe('A')
 
-  expect(expectedError2.result).toBe('error')
+  expect(expectedError2.status).toBe('error')
   expect(expectedError2.argument).toBe('C')
 })
 
@@ -34,10 +34,10 @@ test('invalid input test', () => {
   const expectedError2 = new Processor().process(input2)
 
   // don't check message - check only 'argument' field
-  expect(expectedError1.result).toBe('error')
+  expect(expectedError1.status).toBe('error')
   expect(expectedError1.argument).toBe('A')
 
-  expect(expectedError2.result).toBe('error')
+  expect(expectedError2.status).toBe('error')
   expect(expectedError2.argument).toBe('D')
 })
 

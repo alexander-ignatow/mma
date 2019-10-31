@@ -1,6 +1,6 @@
 export function generateArgError (argName, errorType) {
   return {
-    result: 'error',
+    status: 'error',
     argument: argName,
     message: `Argument ${argName} ${errorType}`
   }
@@ -8,7 +8,7 @@ export function generateArgError (argName, errorType) {
 
 export function generateError (message) {
   return {
-    result: 'error',
+    status: 'error',
     message
   }
 }
@@ -19,7 +19,7 @@ export function generateErrorNoValidOutput () {
 
 export function generateSuccess (result) {
   return {
-    result: 'OK',
+    status: 'OK',
     message: 'Success',
     ...result
   }

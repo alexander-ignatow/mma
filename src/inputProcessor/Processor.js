@@ -54,7 +54,7 @@ export default class Processor {
   }
 
   _processWithRules (input) {
-    let resultingOutput = {}
+    let resultingOutput = null
 
     for (const ruleset of this._ruleSets) {
       let intermediateOutput = null
